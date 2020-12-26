@@ -1,0 +1,38 @@
+body {
+	background-color: #3c8dbc;
+}
+
+img{
+	width: 48%;
+	height: 58%;
+	-webkit-border-radius: 50%;
+}
+
+.cuadro{
+	max-width: 450px;
+	background-color: #FFFFFF;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 11%;
+
+	border-radius: 15px;
+
+	box-shadow: 0px 0px 20px #000000;
+
+	text-align: center;
+}
+
+.titulo{
+	font-size: 18px;
+	padding-top: 25px;
+}
+
+.linea{
+	border-bottom: 2px solid #3c8dbc;
+	padding-bottom: 5px;
+}
+
+.margen{
+	margin-left: 50px;
+	margin-right: 50px;
+}

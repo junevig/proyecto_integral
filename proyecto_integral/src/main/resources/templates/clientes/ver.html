@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout/layout :: head"></head>
+<body class="skin-blue sidebar-mini">
+
+	<header th:replace="layout/layout :: header" class="main-header"></header>
+
+	<aside th:replace="layout/layout :: menu" class="main-sidebar"></aside>
+
+	<div class="content-wrapper">
+		<!-- Contenido del formulario -->
+		<br>
+		<div class="container">
+			<div class="card">
+				<div class="card-header">Datos del Cliente</div>
+				<div class="card-body">
+					<ul class="list-group">
+						<li class="list-group-item" th:text="${cliente.nombres}"></li>
+						<li class="list-group-item" th:text="${cliente.apellidos}"></li>
+						<li class="list-group-item" th:text="${cliente.email}"></li>
+						<li class="list-group-item" th:text="${cliente.fecha_creacion}"></li>
+					</ul>
+					<br>
+					<div th:if="${#lists.isEmpty(cliente.facturas)}" class="my-2">No hay facturas para el cliente</div>
+					<table th:if="${not #lists.isEmpty(cliente.facturas)}" class="table table-bordered table-striped">
+						<thead class="thead-dark">
+							<tr>
+								<th>ID</th>
+								<th>Descripción</th>
+								<th>Fecha</th>
+								<th>Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="item: ${cliente.facturas}">
+								<th th:text="${item.id}"></th>
+								<td th:text="${item.descripcion}"></td>
+								<td th:text="${item.fecha_creacion}"></td>
+								<td th:text="${item.total}"></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="layout/layout :: footer" class="main-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout/layout :: head"></head>
+<body class="skin-blue sidebar-mini">
+	
+  	<header th:replace="layout/layout :: header" class="main-header"></header>
+  
+  	<aside th:replace="layout/layout :: menu" class="main-sidebar"></aside>
+	
+	<div class="content-wrapper">
+  		<!-- Contenido del formulario -->
+  		<div class="container colorFondo">
+  		<br>
+		<h1 class="text-center">Listado de Clientes</h1>
+		<table class="table table-bordered table-hover mt-4">
+			<thead class="thead-dark">
+				<tr class="text-center">
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>E-mail</th>
+					<th>Fecha</th>
+					<th>Ver</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item: ${clientes}">
+					<td th:text="${item.id}"> </td>
+					<td th:text="${item.nombres}"> </td>
+					<td th:text="${item.apellidos}"> </td>
+					<td th:text="${item.email}"> </td>
+					<td th:text="${item.fecha_creacion}"> </td>
+					<td class="text-center">
+						<a th:href="@{/clientes/ver/}+${item.id}" class="btn btn-info"><i class="far fa-eye"></i> Ver</a>
+					</td>
+					<td class="text-center">
+						<a th:href="@{/clientes/form/}+${item.id}" type="button" class="btn btn-warning"><i class="far fa-edit"></i> Editar</a>
+					</td>
+					<td class="text-center">
+						<a th:href="@{/clientes/eliminar/}+${item.id}" type="button" class="btn btn-danger" onclick="return confirm('Estás seguro de eliminar?');"><i class="far fa-trash-alt"></i> Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+  	</div>
+  	<footer th:replace="layout/layout :: footer" class="main-footer"></footer>
+</body>
+</html>
